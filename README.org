@@ -24,7 +24,9 @@
 On MacOS, you will probably need to install GNU =getopt=, as well as GNU =date= (symlinking it to =date= as needed).  You may want to put them earlier in your =PATH= when running =restic-runner=.  For example, using Homebrew, you could do this:
 
 #+BEGIN_SRC sh
-  $ brew install gnu-getopt coreutils
+  $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  $ brew install awk bash coreutils findutils gnu-getopt grep moreutils
+  $ echo 'export PATH="/usr/local/opt/gnu-getopt/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.bash_profile
   $ ln -s /usr/local/bin/gdate $HOME/.bin/date
   $ export PATH="/usr/local/opt/gnu-getopt/bin:$HOME/.bin:$PATH"
 #+END_SRC
