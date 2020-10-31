@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # restic-runner
 # <http://github.com/alphapapa/restic-runner>
@@ -87,7 +87,8 @@ function cleanup {
     then
         debug "Unmounting repo from: $mount_point"
 
-        fusermount -u "$mount_point" || error "Unable to unmount repo from: $mount_point"
+        #fusermount -u "$mount_point" || error "Unable to unmount repo from: $mount_point"
+        umount "$mount_point" || error "Unable to unmount repo from: $mount_point"
     fi
 }
 
